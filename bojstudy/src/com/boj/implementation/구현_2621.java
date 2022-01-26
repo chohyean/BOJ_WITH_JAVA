@@ -1,72 +1,63 @@
 package com.boj.implementation;
 
-
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class 구현_2621 {
 
+	private static int score = 0;
+	private static char[] color = new char[5];
+	private static int[] num = new int[5];
+	private static boolean straightNum = false;
+	private static boolean sameColor = false;
+
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 
-		String[] arr = new String[5];
-
-		int maxNum, pair1, pair2, triple, quad;
-
 		for (int i = 0; i < 5; i++) {
-			arr[i] = scanner.nextLine();
-//			System.out.println(arr[i]);
+			color[i] = scanner.next().charAt(0);
+			num[i] = scanner.nextInt();
 		}
 
-		String[] card1 = arr[0].split(" ");
-		String[] card2 = arr[1].split(" ");
-		String[] card3 = arr[2].split(" ");
-		String[] card4 = arr[3].split(" ");
-		String[] card5 = arr[4].split(" ");
+		Arrays.sort(color);
+		Arrays.sort(num);
 
-		String[] color = { card1[0], card2[0], card3[0], card4[0], card5[0] };
-		String[] num = { card1[1], card2[1], card3[1], card4[1], card5[1] };
+		if (num[0] == num[1] - 1 && num[0] == num[2] - 2 && num[0] == num[3] - 3 && num[0] == num[4] - 4)
+			straightNum = true; // 모든 숫자가 연속적일 때
+		if (color[0] == color[4])
+			sameColor = true; // 모두 같은 색일 때
 
-		for (int i = 1; i <= 9; i++) {
-			if (num[i] == "2") {
-				// 같은 숫자가 2개인 개수 파악
-				if (pair1 > 0)
-					pair2 = i;
-				else
-					pair1 = i;
-			} else if (num[i] == "3")
-				triple = i;
-			else if (num[i] == "4")
-				quad = i;
-		}
-
-		boolean isFlush = false;
-		if (color[0] == "5" || color[1] == "5" || color[2] == "5" || color[3] == "5")
-			isFlush = true;
-		boolean isStraight = false;
-		for (int i = 1; i <= 6; i++) {
-			if (num[i] == num[i + 1] == num[i + 2] == num[i + 3] == num[i + 4]) {
-				isStraight = true;
+		if (straightNum && sameColor) { // 모두 같은 색이면서 숫자가 연속적일 때
+			score = num[4] + 900; // 가장 높은 숫자에 900을 더함
+		} else if (num[0] == num[3] || num[1] == num[4]) { // 5장 중 4장의 숫자가 같을 때
+			score = num[3] + 800; // 같은 숫자에 800을 더함
+		} else if (num[0] == num[2] && num[3] == num[4] || num[0] == num[1] && num[2] == num[4]) { // 5장 중 3장의 숫자가 같고 나머지 2장도 숫자가 같을 때
+			score = num[0] + num[4] + 9 * num[2] + 700; // 3장이 같은 숫자에 10을 곱하고 2장이 같은 숫자를 더한 다음 700을 더함
+			// num[2]는 무조건 한 번 끼워져있기 때문에 9번만 곱하고 3장이 같은 숫자, 2장이 같은 숫자 한번씩 더한다!
+		} else if (sameColor) { // 카드 색이 모두 같을 때
+			score = num[4] + 600; // 가장 높은 숫자에 600을 더함
+		} else if (straightNum) { // 숫자가 연속적일 때
+			score = num[4] + 500; // 가장 높은 숫자에 500을 더함
+		} else if (num[0] == num[2] || num[1] == num[3] || num[2] == num[4]) { // 5장 중 3장의 숫자가 같을 때
+			score = num[2] + 400; // 3장이 같은 숫자에 400을 더함
+		} else if (num[0] == num[1]) { 
+			if (num[2] == num[3] || num[3] == num[4]) { // 5장 중 2장의 숫자가 같고 또 다른 2장의 숫자가 같을 때 (num[0]과 num[1]가 같은 버전)
+				score = 300 + num[3] * 10 + num[0]; // 같은 숫자 중 큰 숫자에 10을 곱하고 같은 숫자 중 작은 숫자를 더한 다음 300을 더함
+			} else { // 5장 중 2장의 숫자가 같을 때
+				score = num[0] + 200; // 같은 숫자에 200을 더함
 			}
+		} else if (num[1] == num[2]) { 
+			if (num[3] == num[4]) { // 5장 중 2장의 숫자가 같고 또 다른 2장의 숫자가 같을 때 (num[1]과 num[2]가 같은 버전)
+				score = 300 + num[3] * 10 + num[1];
+			} else {
+				score = num[1] + 200;
+			}
+		} else if (num[2] == num[3] || num[3] == num[4]) { // 5장 중 2장의 숫자가 같을 때
+			score = num[3] + 200; // 같은 숫자에 200을 더함
+		} else { // 위의 어떤 경우에도 해당하지 않을 때
+			score = num[4] + 100; // 가장 큰 숫자에 100을 더함
 		}
-		// 각 조건에 해당하는 점수
-		if (isFlush && isStraight)
-			System.out.printf("%d\n", 900 + maxNum);
-		else if (isFlush)
-			System.out.printf("%d\n", 600 + maxNum);
-		else if (isStraight)
-			System.out.printf("%d\n", 500 + maxNum);
-		else if (quad != 0)
-			System.out.printf("%d\n", 800 + quad);
-		else if (triple != 0 && pair1 != 0)
-			System.out.printf("%d\n", 700 + 10 * triple + pair1);
-		else if (triple != 0)
-			System.out.printf("%d\n", 400 + triple);
-		else if (pair1 != 0 && pair2 != 0)
-			System.out.printf("%d\n", 300 + 10 * Math.max(pair1, pair2) + Math.min(pair1, pair2));
-		else if (pair1 != 0)
-			System.out.printf("%d\n", 200 + pair1);
-		else
-			System.out.printf("%d\n", 100 + maxNum);
+		System.out.print(score);
 
 	}
 
