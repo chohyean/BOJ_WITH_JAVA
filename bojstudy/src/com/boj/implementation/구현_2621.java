@@ -3,6 +3,11 @@ package com.boj.implementation;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * 2621.카드게임
+ * @author ashle
+ *
+ */
 public class 구현_2621 {
 
 	private static int score = 0;

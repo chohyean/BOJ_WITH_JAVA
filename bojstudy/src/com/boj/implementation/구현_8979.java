@@ -3,6 +3,11 @@ package com.boj.implementation;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * 8979.올림픽
+ * @author ashle
+ *
+ */
 public class 구현_8979 {
 
 	private static int N; // 국가의 수

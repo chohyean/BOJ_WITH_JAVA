@@ -3,6 +3,11 @@ package com.boj.implementation;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * 16926.배열 돌리기
+ * @author ashle
+ *
+ */
 public class 구현_16926 {
 
 	private static int N;

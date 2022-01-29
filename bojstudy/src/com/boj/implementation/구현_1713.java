@@ -5,6 +5,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * 1713.후보 추천하기
+ * @author ashle
+ *
+ */
 public class 구현_1713 {
 
 	private static int N; // 사진틀의 개수
