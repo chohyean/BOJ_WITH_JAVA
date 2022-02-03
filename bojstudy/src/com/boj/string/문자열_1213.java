@@ -25,11 +25,12 @@ public class 문자열_1213 {
 		char[] nameArr = name.toCharArray();
 		Arrays.sort(nameArr); // 영어이름을 알파벳순으로 정렬
 		
+
 		int position = 0;
 		for (int i = 0; i < nameArr.length; i++) {
 			if (i == nameArr.length-1) {
 				alpha = new String(Arrays.copyOfRange(nameArr, position, i+1));
-				System.out.println("alpha : " + alpha);
+//				System.out.println("alpha : " + alpha);
 				if(alpha.length() == 1) {
 					palin[1] = alpha;
 				}else if(alpha.length() % 2 == 0) {
@@ -42,7 +43,7 @@ public class 문자열_1213 {
 			}
 			if (nameArr[i] != nameArr[i + 1]) {
 				alpha = new String(Arrays.copyOfRange(nameArr, position, i+1));
-				System.out.println("alpha : " + alpha);
+//				System.out.println("alpha : " + alpha);
 				if(alpha.length() == 1) {
 					palin[1] = alpha;
 				}else if(alpha.length() % 2 == 0) {
