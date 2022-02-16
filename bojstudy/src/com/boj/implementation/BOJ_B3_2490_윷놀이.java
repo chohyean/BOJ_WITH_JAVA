@@ -8,7 +8,7 @@ import java.util.Scanner;
  * @author ashle
  *
  */
-public class 구현_2490 {
+public class BOJ_B3_2490_윷놀이 {
 
 	private static int[] arr; // 윷짝들
 	private static int cnt;

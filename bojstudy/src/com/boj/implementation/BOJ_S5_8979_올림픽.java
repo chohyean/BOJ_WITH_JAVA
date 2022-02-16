@@ -8,7 +8,7 @@ import java.util.Scanner;
  * @author ashle
  *
  */
-public class 구현_8979 {
+public class BOJ_S5_8979_올림픽 {
 
 	private static int N; // 국가의 수
 	private static int K; // 등수를 알고 싶은 국가

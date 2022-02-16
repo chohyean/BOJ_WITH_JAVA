@@ -8,7 +8,7 @@ package com.boj.string;
  */
 import java.util.Scanner;
 
-public class 문자열_3048 {
+public class BOJ_S4_3048_개미 {
 	
 	private static int N1; // 첫번째 그룹의 개미의 수
 	private static int N2; // 두번째 그룹의 개미의 수

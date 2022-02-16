@@ -10,7 +10,7 @@ import java.util.Scanner;
  * @author ashle
  *
  */
-public class 문자열_1120 {
+public class BOJ_S4_1120_문자열 {
 
 	private static String A = "";
 	private static String B = "";

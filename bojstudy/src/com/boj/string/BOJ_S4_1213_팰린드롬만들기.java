@@ -9,7 +9,7 @@ import java.util.Scanner;
  * @author ashle
  *
  */
-public class 문자열_1213 {
+public class BOJ_S4_1213_팰린드롬만들기 {
 	
 	private static String name; // 영어 이름
 	private static String[] palin; // 최종 팰린드롬

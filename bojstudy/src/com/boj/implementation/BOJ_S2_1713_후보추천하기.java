@@ -10,7 +10,7 @@ import java.util.Scanner;
  * @author ashle
  *
  */
-public class 구현_1713 {
+public class BOJ_S2_1713_후보추천하기 {
 
 	private static int N; // 사진틀의 개수
 	private static int total; // 전체 학생의 총 추천 횟수

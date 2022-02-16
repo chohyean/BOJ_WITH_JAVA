@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @author ashle
  *
  */
-public class 문자열_1541 {
+public class BOJ_S2_1541_잃어버린괄호 {
 	
 	private static String expression; // 식
 	private static String[] subNum; // -를 기준으로 나눔

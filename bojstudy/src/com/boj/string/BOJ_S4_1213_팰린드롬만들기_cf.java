@@ -2,7 +2,7 @@ package com.boj.string;
 
 import java.util.Scanner;
 
-public class 문자열_1213_cf {
+public class BOJ_S4_1213_팰린드롬만들기_cf {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

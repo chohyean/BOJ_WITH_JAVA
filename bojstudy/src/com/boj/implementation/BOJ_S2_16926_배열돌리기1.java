@@ -8,7 +8,7 @@ import java.util.Scanner;
  * @author ashle
  *
  */
-public class 구현_16926 {
+public class BOJ_S2_16926_배열돌리기1 {
 
 	private static int N;
 	private static int M;

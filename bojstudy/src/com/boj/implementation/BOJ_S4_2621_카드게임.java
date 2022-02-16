@@ -8,7 +8,7 @@ import java.util.Scanner;
  * @author ashle
  *
  */
-public class 구현_2621 {
+public class BOJ_S4_2621_카드게임 {
 
 	private static int score = 0;
 	private static char[] color = new char[5];
