@@ -1,3 +1,4 @@
+package com.boj.graph_traversal;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -49,9 +50,8 @@ public class BOJ_S1_1743_음식물피하기 {
 	public static boolean dfs(int r, int c) {
 		
 		if(!isIn(r, c)) return false;
-		// 현재 노드를 아직 방문하지 않았으면
+		
 		if(floor[r][c] == 1) {
-			// 해당 노드 방문 처리
 			floor[r][c] = 0;
 			cnt++;
 			// 상, 하, 좌, 우의  위치들도 모두 재귀호출

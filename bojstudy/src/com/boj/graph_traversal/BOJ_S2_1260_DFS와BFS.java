@@ -1,4 +1,4 @@
-package com.boj.graphtraversal;
+package com.boj.graph_traversal;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

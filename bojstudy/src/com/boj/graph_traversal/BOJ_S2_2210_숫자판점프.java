@@ -1,3 +1,4 @@
+package com.boj.graph_traversal;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -12,7 +13,7 @@ public class BOJ_S2_2210_숫자판점프 {
 	private static String[][] map;
 	public static int dx[] = { -1, 1, 0, 0 };
 	public static int dy[] = { 0, 0, -1, 1 }; // 상, 하, 좌, 우
-	private static HashSet<String> nums = new HashSet<>();
+	private static HashSet<String> nums = new HashSet<>(); // 중복방지 
 
 	public static void main(String[] args) throws IOException {
 		
@@ -23,6 +24,7 @@ public class BOJ_S2_2210_숫자판점프 {
 				map[r][c] = tokens.nextToken();
 			}
 		}
+		// 입력 완료! 
 
 		for (int r = 0; r < 5; r++) {
 			for (int c = 0; c < 5; c++) {
