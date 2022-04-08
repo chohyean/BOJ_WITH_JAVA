@@ -1,38 +1,31 @@
+package com.boj.binary_search;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.StringTokenizer;
-/**
- * 시간초과 조심! 
- * @author hyeancho
- *
- */
-public class BOJ_S4_10816_숫자카드2 {
+
+public class BOJ_S4_1920_수찾기 {
 	
 	static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 	static StringBuilder output = new StringBuilder();
 	static StringTokenizer tokens;
 	
-	static int N; // 숫자카드의 개수 
-	static int[] cards; // 숫자카드에 적혀있는 정수 배열 
-	static HashMap<Integer, Integer> datas = new HashMap<>();
-	static int M; // 답 구해야 할 개수 
-	static int[]  nums; // 몇개 가지고 있는 숫자카드인지 구해야 할 정수 배열 
-	
-	
-	static int[] answer;
+	static int N;
+	static int[] A;
+	static int M;
+	static int[] nums;
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
+		
 		N = Integer.parseInt(input.readLine());
-		cards = new int[N];
+		A = new int[N];
 		tokens = new StringTokenizer(input.readLine());
 		for(int i = 0; i < N; i++) {
-			int keyNum = Integer.parseInt(tokens.nextToken());
-			datas.put(keyNum, datas.getOrDefault(keyNum, 0)+1);
+			A[i] = Integer.parseInt(tokens.nextToken());
 		}
+		Arrays.sort(A);
+		
 		M = Integer.parseInt(input.readLine());
 		nums = new int[M];
 		tokens = new StringTokenizer(input.readLine());
@@ -40,11 +33,28 @@ public class BOJ_S4_10816_숫자카드2 {
 			nums[i] = Integer.parseInt(tokens.nextToken());
 		}
 		
-		for(int n : nums) {
-			output.append(datas.getOrDefault(n, 0)).append(" ");
+		for(int i = 0; i < M; i++) {
+			int result = binarySearch(A, nums[i], 0, N-1);
+			if(result == -1) {
+				output.append("0").append("\n");
+			}else {
+				output.append("1").append("\n");
+			}
 		}
+		
 		System.out.println(output);
 
+	}
+	
+	public static int binarySearch(int[] arr, int target, int start, int end) {
+		while(start <= end) {
+			int mid = (start + end) / 2;
+			
+			if(arr[mid] == target) return mid;
+			else if(arr[mid] > target) end = mid - 1;
+			else start = mid + 1;
+		}
+		return -1;
 	}
 
 }
